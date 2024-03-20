@@ -13,7 +13,11 @@ class CourseController extends Controller
     public function index()
     {
         $courses = Course::get();
-        return response()->json($courses);
+        return response()->json([
+            'id' => $courses->id,
+            'course_code' => $courses->course_code,
+            'course_name' => $courses->course_name
+        ]);
     }
 
     /**
