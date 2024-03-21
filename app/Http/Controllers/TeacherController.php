@@ -36,7 +36,7 @@ class TeacherController extends Controller
         $teacher = Teacher::create($validatedData);
         return response()->json([
             'id' => $teacher->id,
-            'name' => $teacher->course_code
+            'name' => $teacher->name
         ], 201);
     }
 
