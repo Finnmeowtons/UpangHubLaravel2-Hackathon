@@ -12,7 +12,8 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        $teachers = Teacher::select('id', 'name')->get();
+        return response()->json($teachers);
     }
 
     /**
@@ -20,8 +21,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        $teachers = Teacher::select('id', 'name')->get();
-        return response()->json($teachers);
+        
     }
 
     /**
