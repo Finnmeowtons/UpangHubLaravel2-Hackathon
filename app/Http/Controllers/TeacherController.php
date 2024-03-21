@@ -12,7 +12,8 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        $teachers = Teacher::select('id', 'name')->get();
+        return response()->json($teachers);
     }
 
     /**
@@ -20,8 +21,7 @@ class TeacherController extends Controller
      */
     public function create()
     {
-        $teachers = Teacher::select('id', 'name')->get();
-        return response()->json($teachers);
+        
     }
 
     /**
@@ -36,7 +36,7 @@ class TeacherController extends Controller
         $teacher = Teacher::create($validatedData);
         return response()->json([
             'id' => $teacher->id,
-            'name' => $teacher->course_code
+            'name' => $teacher->name
         ], 201);
     }
 
