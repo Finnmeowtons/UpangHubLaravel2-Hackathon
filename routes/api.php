@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ParkingController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\TeacherController;
@@ -33,3 +34,4 @@ Route::post('/users/reset', [ApiUserController::class, 'sendPasswordResetLink'])
 Route::post('/users/check-email', [ApiUserController::class, 'checkEmailAvailability']);
 Route::apiResource('users', ApiUserController::class);
 
+Route::apiResource('parking', ParkingController::class);
