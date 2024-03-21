@@ -31,13 +31,24 @@ class RoomController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'room_code' => 'required'
+            'room_code' => 'required',
+            'img' => 'required|image|mimes:jpeg,png,jpg,gif|',
         ]);
+
+        $filename = '';
+        if ($request->hasFile('img')) {
+            $file = $request->file('img');
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . '.' . $extension;
+            $path = $file->storeAs('room_image', $filename, 'public');
+            $validatedData['img'] = 'storage/' . $path;
+        }
 
         $room = Room::create($validatedData);
         return response()->json([
             'id' => $room->id,
-            'room_code' => $room->room_code
+            'room_code' => $room->room_code,
+            'img' => $room->img
         ], 201);
     }
 

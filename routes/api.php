@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CourseController;
+use App\Http\Controllers\ParkingController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\TeacherController;
@@ -26,3 +27,4 @@ Route::apiResource('teacher', TeacherController::class);
 Route::apiResource('room', RoomController::class);
 Route::apiResource('course', CourseController::class);
 Route::apiResource('schedule', ScheduleController::class);
+Route::apiResource('parking', ParkingController::class);
