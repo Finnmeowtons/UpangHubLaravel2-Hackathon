@@ -42,7 +42,6 @@ class YearBlockController extends Controller
             'year' => 'required',
             'block' => 'required',
         ]);
-        dd($yearBlock);
         $yearBlock->update($validatedData);
         dd($yearBlock);
         return response()->json($yearBlock);
