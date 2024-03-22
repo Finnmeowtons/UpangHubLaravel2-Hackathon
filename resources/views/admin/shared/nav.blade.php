@@ -33,19 +33,19 @@
             <div class="sb-sidenav-menu">
                 <div class="nav">
                     <div class="sb-sidenav-menu-heading">Core</div>
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="{{ route('admin.index') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Dashboard
                     </a>
 
                     <div class="sb-sidenav-menu-heading">Addons</div>
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="{{ route('admin.accept.view') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                        Current Users
+                        On Going Request
                     </a>
-                    <a class="nav-link" href="">
+                    <a class="nav-link" href="{{ route('admin.reject.view') }}">
                         <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                        Pets for Adoption
+                        Rejected Request
                     </a>
                 </div>
             </div>

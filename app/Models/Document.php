@@ -16,7 +16,8 @@ class Document extends Model
         'user_id',
         'message',
         'ammount',
-        'grade'
+        'grade',
+        'status'
     ];
 
     public function user(){

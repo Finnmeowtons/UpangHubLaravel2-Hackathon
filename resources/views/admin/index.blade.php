@@ -10,8 +10,8 @@
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-primary text-white mb-4">
                     <div class="card-body">
-                        <h5 class="card-title mb-0">Current Users</h5>
-                        <div class="card-body d-2" style="font-size: 2rem;"></div>
+                        <h5 class="card-title mb-0">Successful Request</h5>
+                        <div class="card-body d-2" style="font-size: 2rem;">{{ $doneCount }}</div>
                     </div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
                         <a class="small text-white stretched-link" href="">View Details</a>
@@ -20,27 +20,15 @@
 
                 </div>
 
-            </div>
-            <div class="col-xl-3 col-md-6">
-                <div class="card bg-warning text-white mb-4">
-                    <div class="card-body">
-                        <h5 class="card-title mb-0">Pending Status</h5>
-                        <div class="card-body d-2" style="font-size: 2rem;"></div>
-                    </div>
-                    <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="">View Details</a>
-                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                    </div>
-                </div>
             </div>
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-success text-white mb-4">
                     <div class="card-body">
-                        <h5 class="card-title mb-0">Success Adopted</h5>
-                        <div class="card-body d-2" style="font-size: 2rem;"></div>
+                        <h5 class="card-title mb-0">On Going</h5>
+                        <div class="card-body d-2" style="font-size: 2rem;">{{ $acceptedCount }}</div>
                     </div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
-                        <a class="small text-white stretched-link" href="">View
+                        <a class="small text-white stretched-link" href="{{ route('admin.accept.view') }}">View
                             Details</a>
                         <div class="small text-white"><i class="fas fa-angle-right"></i></div>
                     </div>
@@ -49,8 +37,8 @@
             <div class="col-xl-3 col-md-6">
                 <div class="card bg-danger text-white mb-4">
                     <div class="card-body">
-                        <h5 class="card-title mb-0">Rejected Users</h5>
-                        <div class="card-body d-2" style="font-size: 2rem;"></div>
+                        <h5 class="card-title mb-0">Rejected Request</h5>
+                        <div class="card-body d-2" style="font-size: 2rem;">{{ $rejectCount }}</div>
                     </div>
                     <div class="card-footer d-flex align-items-center justify-content-between">
                         <a class="small text-white stretched-link" href="">View
@@ -64,7 +52,7 @@
         <div class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
-                Reported Pets
+                Pending Request
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -76,34 +64,47 @@
                                 <th>Good Moral</th>
                                 <th>Form 137</th>
                                 <th>Copy of Grades</th>
+                                <th>Message</th>
+                                <th>Amount</th>
                                 <th>Accept</th>
                                 <th>Reject</th>
                             </tr>
                         </thead>
                         <tbody>
-                            {{-- @foreach ($reports as $report)
+                            @foreach ($pendings as $pending)
                                 <tr>
-                                    <td>{{ $report->pet->id }}</td>
-                                    <td>{{ $report->pet->name }}</td>
-                                    <td>{{ $report->reason }}</td>
-                                    <td><a href="{{ route('admin.user-profile', ['id' => $report->pet->user->id]) }}">{{ $report->pet->user->name }}<i
-                                                class="bi bi-arrow-up-right"></i></a></td>
+                                    <td>{{ $pending->user->id }}</td>
+                                    <td>{{ $pending->user->name }}</td>
+                                    <td>{{ $pending->goodmoral }}</td>
+                                    <td>{{ $pending->form }}</td>
+                                    <td>{{ $pending->grade }}</td>
+                                    <td>{{ $pending->message }}</td>
+                                    <td>{{ $pending->ammount }}</td>
+
                                     <td>
-                                        <form action="{{ route('pet.delete', ['pet' => $report->pet->id]) }}"
+                                        <form action="{{ route('admin.accept', ['id' => $pending->id]) }}"
                                             method="POST">
                                             @csrf
-                                            @method('delete')
-                                            <input type="submit" class="btn btn-white" value="Delete this post">
+                                            @method('put')
+                                            <input type="submit" class="btn btn-white" value="Accept">
                                         </form>
                                     </td>
                                     <td>
+                                        <form action="{{ route('admin.reject', ['id' => $pending->id]) }}"
+                                            method="POST">
+                                            @csrf
+                                            @method('put')
+                                            <input type="submit" class="btn btn-white" value="Reject">
+                                        </form>
+                                    </td>
+                                    {{-- <td>
 
                                         <input type="submit" class="btn btn-danger ban-user" value="Ban this User"
                                             data-user-id="{{ $report->pet->user->id }}">
 
-                                    </td>
+                                    </td> --}}
                                 </tr>
-                            @endforeach --}}
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
