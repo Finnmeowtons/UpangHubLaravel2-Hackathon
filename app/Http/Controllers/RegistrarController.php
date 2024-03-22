@@ -18,7 +18,10 @@ class RegistrarController extends Controller
         if (Auth::id()) {
             $usertype = Auth()->user()->user_type;
             if ($usertype === 'user') {
-                return view('user.index');
+                $user = User::findOrFail(auth()->id());
+                $receipts = $user->documents()->where('user_id', auth()->id())->where('status','accepted')->get();
+        
+                return view('user.index', compact('receipts'));
             } elseif ($usertype === 'admin') {
                 return redirect(route('admin.index'));
             }
@@ -47,11 +50,20 @@ class RegistrarController extends Controller
         $data->message = $request->message;
         $data->mod = $request->mod; // Access the selected value from the dropdown menu
 
-    
+
         // Save the data to the database
         $data->save();
 
         // Redirect back with a success message
         return redirect()->back()->with('message', 'Request Sent Successfully');
+    }
+
+    public function receipt()
+    {
+        $id = auth()->id();
+        $receipts = User::whereHas('documents', function ($q) use ($id) {
+            $q->where('user_id', $id);
+        })->with('documents')->get();
+        dd($receipts);
     }
 }

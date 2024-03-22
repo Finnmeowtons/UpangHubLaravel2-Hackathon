@@ -27,6 +27,7 @@ Route::middleware([
 
     Route::post('/logout', [RegistrarController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [RegistrarController::class, 'index']);
+    Route::get('/hi', [RegistrarController::class, 'receipt']);
 });
 
 Route::group(['middleware' => ['admin', 'auth']], function () {

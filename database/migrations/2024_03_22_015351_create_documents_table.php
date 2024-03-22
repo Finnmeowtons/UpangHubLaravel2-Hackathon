@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table->integer('goodmoral');
-            $table->integer('form');
-            $table->integer('grade');
+            $table->integer('goodmoral')->default(0);
+            $table->integer('form')->default(0);
+            $table->integer('grade')->default(0);
             $table->string('message');
             $table->integer('amount');
             $table->string('mod');
