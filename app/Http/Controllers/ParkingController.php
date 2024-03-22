@@ -12,6 +12,8 @@ class ParkingController extends Controller
      */
     public function index()
     {
+        // test
+        // hi po
         $slots = Parking::all();
         return response()->json($slots);
     }
