@@ -17,14 +17,14 @@ class RegistrarController extends Controller
 
         if (Auth::id()) {
             $usertype = Auth()->user()->user_type;
-            if ($usertype == 'user') {
+            if ($usertype === 'user') {
                 return view('user.index');
-            } else {
+            } elseif ($usertype === 'admin') {
                 return redirect(route('admin.index'));
             }
         }
     }
-  
+
 
     public function logout()
     {
@@ -33,10 +33,11 @@ class RegistrarController extends Controller
 
         return redirect(route('login'));
     }
-    public function reserve(Request $request)  {
+    public function reserve(Request $request)
+    {
         // Create a new Document instance
         $data = new Document;
-    
+
         // Assign values to the properties
         $data->user_id = auth()->id();
         $data->goodmoral = $request->goodmoral;
@@ -49,10 +50,8 @@ class RegistrarController extends Controller
     
         // Save the data to the database
         $data->save();
-    
+
         // Redirect back with a success message
         return redirect()->back()->with('message', 'Request Sent Successfully');
     }
-    
-    
 }

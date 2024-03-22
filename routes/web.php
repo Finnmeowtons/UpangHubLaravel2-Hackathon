@@ -27,7 +27,16 @@ Route::middleware([
 
     Route::post('/logout', [RegistrarController::class, 'logout'])->name('logout');
     Route::get('/dashboard', [RegistrarController::class, 'index']);
+});
+
+Route::group(['middleware' => ['admin', 'auth']], function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::get('/admin/accept', [AdminController::class, 'acceptView'])->name('admin.accept.view');
+    Route::get('/admin/success', [AdminController::class, 'successView'])->name('admin.success.view');
+    Route::get('/admin/reject', [AdminController::class, 'rejectView'])->name('admin.reject.view');
+    Route::put('/admin/{id}/accept', [AdminController::class, 'accept'])->name('admin.accept');
+    Route::put('/admin/{id}/reject', [AdminController::class, 'reject'])->name('admin.reject');
+    Route::put('/admin/{id}/done', [AdminController::class, 'done'])->name('admin.done');
 });
 
 
