@@ -42,7 +42,7 @@ class RegistrarController extends Controller
         $data->goodmoral = $request->goodmoral;
         $data->form = $request->form;
         $data->grade = $request->grade;
-        $data->ammount = $request->amount; // Retrieve amount from the request
+        $data->amount = $request->amount; // Retrieve amount from the request
         $data->message = $request->message;
         $data->mod = $request->mod; // Access the selected value from the dropdown menu
 

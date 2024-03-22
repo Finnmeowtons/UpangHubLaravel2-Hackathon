@@ -17,7 +17,7 @@ return new class extends Migration
             $table->integer('form');
             $table->integer('grade');
             $table->string('message');
-            $table->integer('ammount');
+            $table->integer('amount');
             $table->string('mod');
             $table->string('status')->default('pending');
             $table->string('user_id')->nullable();
