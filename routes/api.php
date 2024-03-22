@@ -35,6 +35,9 @@ Route::apiResource('schedule', ScheduleController::class);
 Route::apiResource('task', TaskController::class);
 Route::apiResource('yearblock', YearBlockController::class);
 
+Route::put('yearblock/{yearBlockId}', [YearBlockController::class, 'update']);
+
+
 Route::post('/users/login', [ApiUserController::class, 'login']);
 Route::post('/users/reset', [ApiUserController::class, 'sendPasswordResetLink']);
 Route::post('/users/check-email', [ApiUserController::class, 'checkEmailAvailability']);
