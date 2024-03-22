@@ -17,14 +17,14 @@ class TaskController extends Controller
     {
         $validatedData = $request->validate([
             'text' => 'required',
-            'yearBlock_id' => 'required'
+            'yearblock_id' => 'required'
         ]);
 
         $task = Task::create($validatedData);
         return response()->json([
             'id' => $task->id,
             'text' => $task->text,
-            'yearBlock_id' => $task->yearBlock_id
+            'yearblock_id' => $task->yearBlock_id
         ], 201);
     }
 
@@ -37,7 +37,7 @@ class TaskController extends Controller
     {
         $validatedData = $request->validate([
             'text' => 'required',
-            'yearBlock_id' => 'required'
+            'yearblock_id' => 'required'
         ]);
 
         $task->update($validatedData);
