@@ -35,18 +35,16 @@ class YearBlockController extends Controller
         return response()->json($yearBlock);
     }
 
-    public function update(Request $request, YearBlock $yearBlock)
-    {
+    public function update(Request $request, YearBlock $yearBlock){
         $validatedData = $request->validate([
             'course' => 'required',
             'year' => 'required',
             'block' => 'required',
         ]);
         $yearBlock->update($validatedData);
-        dd($yearBlock);
         return response()->json($yearBlock);
-        
     }
+
 
     public function destroy(YearBlock $yearBlock)
     {
