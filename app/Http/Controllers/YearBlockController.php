@@ -44,7 +44,6 @@ class YearBlockController extends Controller
         ]);
 
 
-        $yearBlock->id -> $validatedData->id;
         $yearBlock->course -> $validatedData->course;
         $yearBlock->year -> $validatedData->year;
         $yearBlock->block -> $validatedData->block;
