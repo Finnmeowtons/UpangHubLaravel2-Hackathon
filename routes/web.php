@@ -30,4 +30,6 @@ Route::middleware([
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 });
 
-// Route::get('/user', [RegistrarController::class, 'index']);
+
+
+Route::post('/add_document', [RegistrarController::class, 'reserve']);
