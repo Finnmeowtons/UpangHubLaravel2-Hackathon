@@ -13,8 +13,8 @@ class Task extends Model
         'yearBlock_id'
     ];
 
-    // public function yearBlock()
-    // {
-    //     return $this->belongsTo(YearBlock::class, 'yearBlock_id');
-    // }
+    public function yearBlock()
+    {
+        return $this->belongsTo(YearBlock::class, 'yearBlock_id');
+    }
 }
