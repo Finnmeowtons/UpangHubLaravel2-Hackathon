@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Task;
-use App\Models\Yearblock; 
+use App\Models\YearBlock; 
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::select('id', 'text', 'yearblock_id')->with('yearblock')->get();
+        $tasks = Task::select('id', 'text', 'yearblock_id')->with('year_block')->get();
         return response()->json($tasks);
     }
 

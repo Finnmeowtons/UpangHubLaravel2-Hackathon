@@ -14,7 +14,7 @@ class Task extends Model
         'course_id',
     ];
 
-    public function yearblock()
+    public function year_block()
     {
         return $this->belongsTo(Yearblock::class, 'yearblock_id');
     }
