@@ -15,8 +15,8 @@ class YearBlock extends Model
         'block',
     ];
 
-    public function tasks()
-    {
-        return $this->hasMany(Task::class);
-    }
+    // public function tasks()
+    // {
+    //     return $this->hasMany(Task::class);
+    // }
 }
