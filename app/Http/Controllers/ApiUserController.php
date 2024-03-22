@@ -93,7 +93,7 @@ class ApiUserController extends Controller
                     'unique:users'
                 ],
                 'password' => 'required|string|min:8',
-                'user_type' => 'required|string|in:admin,user,security' // Validate against enum values
+                'user_type' => 'required'
             ]);
         } catch (ValidationException $e) {
             if ($e->errors()['email'][0] === 'The email has already been taken.') {
