@@ -15,6 +15,6 @@ class Task extends Model
 
     public function yearBlock()
     {
-        return $this->belongsTo(YearBlock::class);
+        return $this->belongsTo(YearBlock::class, 'yearBlock_id');
     }
 }
