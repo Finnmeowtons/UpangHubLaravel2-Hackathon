@@ -248,65 +248,50 @@
 
                         <div id="request_screen_documents">
                             <div id="good_moral_certificate">
-                                <div id="good_moral_certificate_left">
-                                    <img src="images/information_icon.png" alt="information" class="info"
-                                        id="good_moral_info">
-                                </div>
-                                <div id="good_moral_certificate_center">
-                                    <p id="good_moral_text">Good moral character certificate </p>
-                                </div>
-                                <div id="good_moral_certificate_right">
-                                    <p id="good_moral_counter">0</p>
-                                    <img src="images/plus_icon.png" id="good_moral_plus">
-                                    <img src="images/minus_icon.png" id="good_moral_minus">
-                                </div>
+                            <form id="document_form" action="{{url('add_document')}}" method="POST">
+    @csrf
+    <div class="div_deg">
+        <label>Good Moral</label>
+        <input type="number" id="goodmoral" name="goodmoral" data-price="25">
+    </div>
+    <div class="div_deg">
+        <label>Form 137</label>
+        <input type="number" id="form" name="form" data-price="25">
+    </div>
+    <div class="div_deg">
+        <label>Copy of Grades</label>
+        <input type="number" id="grade" name="grade" data-price="25">
+    </div>
+
+    <div id="purpose_of_request_subtab_title">
+        <p>Purpose of Request</p>
+    </div>
+
+    <div class="div_deg">
+        <textarea id="message" name="message"></textarea>
+    </div>
+
+    <div id="documents_count">
+        <p id="documents_chosen_text">Documents chosen: </p>
+        <p id="documents_chosen_count">0</p>
+    </div>
+    <div id="current_amount">
+        <p id="current_amount_text">Current amount: </p>
+        <p id="current_amount_count">0</p>
+        <!-- Add a hidden input field to store the total amount -->
+        <input type="hidden" id="total_amount_input" name="amount">
+    </div>
+
+    <div id="purpose_submit">
+        <button id="submit_to_mode_button" type="submit">Submit</button>
+    </div>
+</form>
                             </div>
 
-                            <div id="Form137A">
-                                <div id="Form137A_left">
-                                    <img src="images/information_icon.png" alt="information" class="info"
-                                        id="Form137A_info">
-                                </div>
-                                <div id="Form137A_center">
-                                    <p id="Form137A_text">Form 137 A </p>
-                                </div>
-                                <div id="Form137A_right">
-                                    <p id="Form137A_counter">0</p>
-                                    <img src="images/plus_icon.png" id="Form137A_plus">
-                                    <img src="images/minus_icon.png" id="Form137A_minus">
-                                </div>
-                            </div>
-
-                            <div id="COG">
-                                <div id="COG_left">
-                                    <img src="images/information_icon.png" alt="information" class="info"
-                                        id="COG_info">
-                                </div>
-                                <div id="COG_center">
-                                    <p id="COG_text">Copy of Grades </p>
-                                </div>
-                                <div id="COG_right">
-                                    <p id="COG_counter">0</p>
-                                    <img src="images/plus_icon.png" id="COG_plus">
-                                    <img src="images/minus_icon.png" id="COG_minus">
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="ready_to_next">
-                            <div id="documents_count">
-                                <p id="documents_chosen_text">Documents chosen: </p>
-                                <p id="documents_chosen_count">0</p>
-                            </div>
-                            <div id="current_amount">
-                                <p id="current_amount_text">Current amount: </p>
-                                <p id="current_amount_count">0</p>
-                            </div>
-                        </div>
-
-                        <div id="choose_documents">
-                            <button id="choose_documents_button">Choose documents</button>
-                        </div>
+                           
+                            
+                       
+                       
 
                         <!-- ADDITIONAL INFORMATION POPUPS-->
 
@@ -364,38 +349,7 @@
 
                     <div id="purpose_of_request_subtab" data-request-tab-content>
 
-                        <div id="purpose_of_request_subtab_title">
-                            <p>Purpose of Request</p>
-                        </div>
-
-                        <div id="purpose_good_moral">
-                            <img src="images/information_icon.png" id="good_moral_purpose_entry">
-                            <div id="good_moral_purpose_container">
-                                <p id="good_moral_purpose">Good Moral Certificate</p>
-                            </div>
-                            <img src="images/danger_icon.png" id="good_moral_no_purpose">
-                        </div>
-
-                        <div id="purpose_form137">
-                            <img src="images/information_icon.png" id="form137_purpose_entry">
-                            <div id="form137_purpose_container">
-                                <p id="form137_purpose">Form 137</p>
-                            </div>
-                            <img src="images/danger_icon.png" id="form137_no_purpose">
-                        </div>
-
-                        <div id="purpose_COG">
-                            <img src="images/information_icon.png" id="COG_purpose_entry">
-                            <div id="COG_purpose_container">
-                                <p id="COG_purpose">Copy of Grades</p>
-                            </div>
-                            <img src="images/danger_icon.png" id="COG_no_purpose">
-                        </div>
-
-                        <div id="purpose_submit">
-                            <button id="submit_to_mode_button">Submit</button>
-                        </div>
-
+                        
                         <!-- REASON FOR ACQUISITION -->
 
                         <div id="good_moral_purpose_input">
@@ -833,5 +787,33 @@
     <!-- END OF FOOTER SECTION -->
 
 </body>
+<script>
+    // Function to calculate the total amount
+    function calculateTotalAmount() {
+        // Retrieve the values entered by the user
+        var goodmoral = parseInt(document.getElementById('goodmoral').value) || 0;
+        var form = parseInt(document.getElementById('form').value) || 0;
+        var grade = parseInt(document.getElementById('grade').value) || 0;
+
+        // Calculate the total amount
+        var totalAmount = (goodmoral + form + grade) * 25;
+
+        // Update the display of the current amount
+        document.getElementById('current_amount_count').textContent = totalAmount;
+        
+        // Update the hidden input field with the calculated total amount
+        document.getElementById('total_amount_input').value = totalAmount;
+    }
+
+    // Add an event listener to detect changes in input fields
+    document.getElementById('goodmoral').addEventListener('input', calculateTotalAmount);
+    document.getElementById('form').addEventListener('input', calculateTotalAmount);
+    document.getElementById('grade').addEventListener('input', calculateTotalAmount);
+
+    // Call the function initially to calculate the total amount when the page loads
+    calculateTotalAmount();
+</script>
+
+
 
 </html>
