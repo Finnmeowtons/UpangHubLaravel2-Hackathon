@@ -44,9 +44,9 @@ class YearBlockController extends Controller
         ]);
 
 
-        $yearBlock->course -> $validatedData->course;
-        $yearBlock->year -> $validatedData->year;
-        $yearBlock->block -> $validatedData->block;
+        $yearBlock->course = $validatedData['course'];
+$yearBlock->year = $validatedData['year'];
+$yearBlock->block = $validatedData['block'];
 
         $yearBlock->save();
 
