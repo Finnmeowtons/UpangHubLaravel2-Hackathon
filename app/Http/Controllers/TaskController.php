@@ -9,7 +9,7 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::select('id', 'text', 'yearBlock_id')->with('yearBlock')->get();
+        $tasks = Task::select('id', 'text', 'yearBlock_id')->with('yearblock')->get();
         return response()->json($tasks);
     }
 
