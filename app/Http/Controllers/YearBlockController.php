@@ -35,6 +35,7 @@ class YearBlockController extends Controller
         return response()->json($yearBlock);
     }
 
+
     public function update(Request $request, YearBlock $yearBlock){
         $validatedData = $request->validate([
             'course' => 'required',
@@ -42,7 +43,12 @@ class YearBlockController extends Controller
             'block' => 'required',
         ]);
         $yearBlock->update($validatedData);
-        return response()->json($yearBlock);
+        return response()->json([
+            'id' => $yearBlock->id,
+            'course' => $yearBlock->course,
+            'year' => $yearBlock->year,
+            'block' => $yearBlock->block
+        ]);
     }
 
 
