@@ -30,6 +30,8 @@ Route::apiResource('teacher', TeacherController::class);
 Route::apiResource('room', RoomController::class);
 Route::apiResource('course', CourseController::class);
 Route::apiResource('schedule', ScheduleController::class);
+Route::apiResource('task', TaskController::class);
+Route::apiResource('yearblock', YearBlock::class);
 
 Route::post('/users/login', [ApiUserController::class, 'login']);
 Route::post('/users/reset', [ApiUserController::class, 'sendPasswordResetLink']);
