@@ -36,7 +36,8 @@ class YearBlockController extends Controller
     }
 
 
-    public function update(Request $request, YearBlock $yearBlock){
+    public function update(Request $request, YearBlock $yearBlock)
+    {
         $validatedData = $request->validate([
             'course' => 'required',
             'year' => 'required',
