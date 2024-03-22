@@ -9,7 +9,7 @@ class YearBlockController extends Controller
 {
     public function index()
     {
-        $yearBlock = YearBlock::select('id', 'course', 'year', 'block')->get();
+        $yearBlocks = YearBlock::select('id', 'course', 'year', 'block')->get();
         return response()->json($yearBlocks);
     }
 
