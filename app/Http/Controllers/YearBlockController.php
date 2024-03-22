@@ -50,12 +50,7 @@ class YearBlockController extends Controller
 
         $yearBlock->save();
 
-        return response()->json([
-            'id' => $yearBlock->id,
-            'course' => $yearBlock->course,
-            'year' => $yearBlock->year,
-            'block' => $yearBlock->block
-        ]);
+        return response()->json($yearBlock);
 
     }
 
