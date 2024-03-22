@@ -8,6 +8,7 @@ use App\Http\Controllers\TaskController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\ApiUserController;
 use App\Http\Controllers\RegistrarController;
+use App\Http\Controllers\YearBlockController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -31,6 +32,7 @@ Route::apiResource('room', RoomController::class);
 Route::apiResource('course', CourseController::class);
 Route::apiResource('schedule', ScheduleController::class);
 Route::apiResource('task', TaskController::class);
+Route::apiResource('yearblock', YearBlockController::class);
 
 
 Route::post('/users/login', [ApiUserController::class, 'login']);
