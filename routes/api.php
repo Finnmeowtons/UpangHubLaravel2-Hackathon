@@ -32,7 +32,7 @@ Route::apiResource('room', RoomController::class);
 Route::apiResource('course', CourseController::class);
 Route::apiResource('schedule', ScheduleController::class);
 Route::apiResource('task', TaskController::class);
-Route::apiResource('yearblock', YearBlockController::class);
+Route::apiResource('yearblock', YearblockController::class);
 
 
 Route::post('/users/login', [ApiUserController::class, 'login']);
