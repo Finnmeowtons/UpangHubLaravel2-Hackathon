@@ -16,7 +16,10 @@ return new class extends Migration
             $table->integer('goodmoral');
             $table->integer('form');
             $table->integer('grade');
-            $table->foreignId('user_id')->constrained();
+            $table->string('message');
+            $table->integer('ammount');
+            $table->string('status')->default('pending');
+            $table->string('user_id')->nullable();
             $table->timestamps();
         });
     }
