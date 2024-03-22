@@ -38,9 +38,9 @@ class YearBlockController extends Controller
         $yearblock = YearBlock::create($validatedData);
         return response()->json([
             'id' => $yearblock->id,
-            'course' => $yearblock->name,
-            'year' => $yearblock->name,
-            'block' => $yearblock->name,
+            'course' => $yearblock->course,
+            'year' => $yearblock->year,
+            'block' => $yearblock->block,
         ], 201);
     }
 
