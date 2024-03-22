@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\YearBlock;
 use Illuminate\Http\Request;
 
-class YearBlockController extends Controller
+class YearBlock2 extends Controller
 {
     public function index()
     {
@@ -42,9 +42,8 @@ class YearBlockController extends Controller
             'year' => 'required',
             'block' => 'required',
         ]);
-
+        
         $yearBlock->update($validatedData);
-        $yearBlock->save();
         return response()->json([
             'id' => $yearBlock->id,
             'course' => $yearBlock->course,
