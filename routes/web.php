@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\RegistrarController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +24,10 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+
+    Route::post('/logout', [RegistrarController::class, 'logout'])->name('logout');
+    Route::get('/dashboard', [RegistrarController::class, 'index']);
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
 });
+
+// Route::get('/user', [RegistrarController::class, 'index']);
