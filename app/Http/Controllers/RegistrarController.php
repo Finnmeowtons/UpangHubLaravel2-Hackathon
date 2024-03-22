@@ -44,6 +44,8 @@ class RegistrarController extends Controller
         $data->grade = $request->grade;
         $data->ammount = $request->amount; // Retrieve amount from the request
         $data->message = $request->message;
+        $data->mod = $request->mod; // Access the selected value from the dropdown menu
+
     
         // Save the data to the database
         $data->save();

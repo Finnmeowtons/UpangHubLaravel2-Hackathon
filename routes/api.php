@@ -6,6 +6,8 @@ use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ScheduleController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\ApiUserController;
+use App\Http\Controllers\RegistrarController;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -35,3 +37,5 @@ Route::post('/users/check-email', [ApiUserController::class, 'checkEmailAvailabi
 Route::apiResource('users', ApiUserController::class);
 
 Route::apiResource('parking', ParkingController::class);
+
+Route::apiResource('registrar', RegistrarController::class);
