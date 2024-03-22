@@ -90,18 +90,15 @@ class ApiUserController extends Controller
                     'string',
                     'email',
                     'max:255',
-                    'unique:users',
-                    'ends_with:@phinmaed.com' // Custom validation rule
+                    'unique:users'
                 ],
                 'password' => 'required|string|min:8',
                 'user_type' => 'required|string|in:admin,user,security' // Validate against enum values
             ]);
         } catch (ValidationException $e) {
-            // If validation fails due to email already being registered, return an error response
             if ($e->errors()['email'][0] === 'The email has already been taken.') {
                 return response()->json(['error' => 'Email is already registered'], 422);
             }
-            // If validation fails due to other reasons, return the validation errors
             return response()->json(['errors' => $e->errors()], 422);
         }
     
@@ -116,7 +113,7 @@ class ApiUserController extends Controller
         $user->save();
     
         // Return the response with the created user data
-        return response()->json(['user' => $user]); 
+        return response()->json($user); 
     }
 
     public function update(Request $request, $id) {
