@@ -15,8 +15,9 @@ class Document extends Model
         'form',
         'user_id',
         'message',
-        'ammount',
-        'grade'
+        'amount',
+        'grade',
+        'mod'
     ];
 
     public function user(){

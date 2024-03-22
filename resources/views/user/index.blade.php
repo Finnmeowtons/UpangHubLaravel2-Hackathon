@@ -272,9 +272,13 @@
     </div>
 
     <div id="documents_count">
-        <p id="documents_chosen_text">Documents chosen: </p>
-        <p id="documents_chosen_count">0</p>
-    </div>
+    <label for="documents_dropdown">mode of delivery</label>
+    <select id="documents_dropdown" name = "mod">
+        <option value="Pick Up">Pick Up</option>
+        <option value="Cash on Delivery">Cash on Delivery</option>
+        <!-- Add more options here for different document choices -->
+    </select>
+</div>
     <div id="current_amount">
         <p id="current_amount_text">Current amount: </p>
         <p id="current_amount_count">0</p>
