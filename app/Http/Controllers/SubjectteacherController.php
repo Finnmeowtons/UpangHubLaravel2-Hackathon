@@ -35,7 +35,7 @@ class SubjectteacherController extends Controller
             'teacher' => 'required'
         ]);
 
-        $$subjectteacher = Subjectteacher::create($validatedData);
+        $subjectteacher = Subjectteacher::create($validatedData);
         return response()->json([
             'id' => $subjectteacher->id,
             'subject_code' => $subjectteacher->subject_code,
