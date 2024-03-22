@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('year_blocks', function (Blueprint $table) {
             $table->id();
+            $table->string('course');
+            $table->string('year');
+            $table->string('block');
             $table->timestamps();
         });
     }
