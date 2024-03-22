@@ -43,12 +43,9 @@ class YearBlockController extends Controller
             'block' => 'required',
         ]);
 
-        $yearBlock->course = $validatedData['course'];
-        $yearBlock->year = $validatedData['year'];
-        $yearBlock->block = $validatedData['block'];
+        
 
-        $yearBlock->save();
-
+        $yearBlock->update($validatedData);
         return response()->json([
             'id' => $yearBlock->id,
             'course' => $yearBlock->course,
