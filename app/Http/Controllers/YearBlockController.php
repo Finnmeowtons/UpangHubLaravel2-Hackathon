@@ -5,12 +5,12 @@ namespace App\Http\Controllers;
 use App\Models\Yearblock;
 use Illuminate\Http\Request;
 
-class YearBlockController extends Controller
+class YearblockController extends Controller
 {
     public function index()
     {
-        $yearBlocks = Yearblock::select('id', 'course', 'year', 'block')->get();
-        return response()->json($yearBlocks);
+        $yearblocks = Yearblock::select('id', 'course', 'year', 'block')->get();
+        return response()->json($yearblocks);
     }
 
     public function store(Request $request)
@@ -21,21 +21,21 @@ class YearBlockController extends Controller
             'block' => 'required',
         ]);
 
-        $yearBlock = Yearblock::create($validatedData);
+        $yearblock = Yearblock::create($validatedData);
         return response()->json([
-            'id' => $yearBlock->id,
-            'course' => $yearBlock->course,
-            'year' => $yearBlock->year,
-            'block' => $yearBlock->block
+            'id' => $yearblock->id,
+            'course' => $yearblock->course,
+            'year' => $yearblock->year,
+            'block' => $yearblock->block
         ], 201);
     }
 
-    public function show(Yearblock $yearBlock)
+    public function show(Yearblock $yearblock)
     {
-        return response()->json($yearBlock);
+        return response()->json($yearblock);
     }
 
-    public function update(Request $request, Yearblock $yearBlock)
+    public function update(Request $request, Yearblock $yearblock)
     {
         // Validate the incoming request data
         $validatedData = $request->validate([
@@ -45,21 +45,21 @@ class YearBlockController extends Controller
         ]);
     
         // Update the yearBlock with the validated data
-        $yearBlock->update($validatedData);
+        $yearblock->update($validatedData);
     
         // Return a JSON response with the updated yearBlock data
         return response()->json([
-            'id' => $yearBlock->id,
-            'course' => $yearBlock->course,
-            'year' => $yearBlock->year,
-            'block' => $yearBlock->block
+            'id' => $yearblock->id,
+            'course' => $yearblock->course,
+            'year' => $yearblock->year,
+            'block' => $yearblock->block
         ]);
     }
 
 
-    public function destroy(Yearblock $yearBlock)
+    public function destroy(Yearblock $yearblock)
     {
-        $yearBlock->delete();
+        $yearblock->delete();
         return response()->json([ 'message' => "Deleted" ]); 
     }
 }
