@@ -29,28 +29,45 @@ class RoomController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $validatedData = $request->validate([
-            'room_code' => 'required',
-            'img' => 'required|image|mimes:jpeg,png,jpg,gif|',
-        ]);
+{
+    // Validate the incoming request data
+    $validatedData = $request->validate([
+        'room_code' => 'required',
+        'img' => 'required|image|mimes:jpeg,png,jpg,gif|',
+    ]);
 
-        $filename = '';
-        if ($request->hasFile('img')) {
-            $file = $request->file('img');
-            $extension = $file->getClientOriginalExtension();
-            $filename = time() . '.' . $extension;
-            $path = $file->storeAs('room_image', $filename, 'public');
-            $validatedData['img'] = 'storage/' . $path;
-        }
+    // Initialize an empty filename variable
+    $filename = '';
 
-        $room = Room::create($validatedData);
-        return response()->json([
-            'id' => $room->id,
-            'room_code' => $room->room_code,
-            'img' => $room->img
-        ], 201);
+    // Check if the request contains an image file
+    if ($request->hasFile('img')) {
+        // Retrieve the file from the request
+        $file = $request->file('img');
+
+        // Get the file extension
+        $extension = $file->getClientOriginalExtension();
+
+        // Generate a unique filename using the current timestamp and the file extension
+        $filename = time() . '.' . $extension;
+
+        // Store the file in the specified directory with the generated filename
+        $path = $file->storeAs('room_image', $filename, 'public');
+
+        // Update the 'img' field in the validated data with the path to the stored image
+        $validatedData['img'] = 'storage/' . $path;
     }
+
+    // Create a new room record in the database with the validated data
+    $room = Room::create($validatedData);
+
+    // Return a JSON response with the ID, room code, and image path of the newly created room
+    return response()->json([
+        'id' => $room->id,
+        'room_code' => $room->room_code,
+        'img' => $room->img
+    ], 201);
+}
+
 
     /**
      * Display the specified resource.
