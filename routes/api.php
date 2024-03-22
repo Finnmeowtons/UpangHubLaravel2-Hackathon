@@ -4,6 +4,8 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\ParkingController;
 use App\Http\Controllers\RoomController;
 use App\Http\Controllers\ScheduleController;
+use App\Http\Controllers\TaskController;
+use App\Http\Controllers\YearBlockController;
 use App\Http\Controllers\TeacherController;
 use App\Http\Controllers\ApiUserController;
 use App\Http\Controllers\RegistrarController;
