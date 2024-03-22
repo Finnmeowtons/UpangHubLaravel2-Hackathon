@@ -24,7 +24,7 @@ class TaskController extends Controller
         return response()->json([
             'id' => $task->id,
             'text' => $task->text,
-            'yearblock_id' => $task->yearBlock_id
+            'yearblock_id' => $task->yearblock_id
         ], 201);
     }
 
