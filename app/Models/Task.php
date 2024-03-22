@@ -10,12 +10,12 @@ class Task extends Model
     use HasFactory;
     protected $fillable = [
         'text',
-        'yearBlock_id',
+        'yearblock_id',
         'course_id',
     ];
 
     public function yearblock()
     {
-        return $this->belongsTo(Yearblock::class, 'yearBlock_id');
+        return $this->belongsTo(Yearblock::class, 'yearblock_id');
     }
 }

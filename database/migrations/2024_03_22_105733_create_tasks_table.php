@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('yearBlock_id');
+            $table->unsignedBigInteger('yearblock_id');
             $table->string('text');
             $table->timestamps();
             
-            $table->foreign('yearBlock_id')->references('id')->on('year_blocks'); 
+            $table->foreign('yearblock_id')->references('id')->on('year_blocks'); 
         });
     }
 
