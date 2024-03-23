@@ -119,7 +119,7 @@
     <!-- HEADER, NOT SUBJECT TO CHANGES-->
 
     <header>
-        <img src="images/upang_text_logo.png" alt="University of Pangasinan" id="upang_text_logo">
+        <img src="assets/upang_text_logo.png" alt="University of Pangasinan" id="upang_text_logo">
     </header>
 
     <!-- END OF HEADER SECTION -->
@@ -133,7 +133,7 @@
         <div id="panel">
 
             <div id="top_panel">
-                <img src="images/upang_circle_logo.png" alt="University of Pangasinan" id="upang_circle_logo">
+                <img src="assets/upang_circle_logo.png" alt="University of Pangasinan" id="upang_circle_logo">
                 <p id="main_title">UPang <br>Registrar <br>System</p>
             </div>
 
@@ -166,11 +166,11 @@
 
                 <div id="home_screen_top">
                     <div id="home_screen_top_left">
-                        <img src="images/home_icon.png" id="home_icon">
+                        <img src="assets/home_icon.png" id="home_icon">
                         <p id="home_text">Home</p>
                     </div>
                     <div id="home_screen_top_right">
-                        <img src="images/notification_icon.png" id="notification_icon">
+                        <img src="assets/notification_icon.png" id="notification_icon">
                     </div>
                 </div>
 
@@ -211,13 +211,13 @@
                             <div id="personal_profile_text_container">
                                 <p id="personal_profile_text">Personal Profile</p>
                             </div>
-                            <img src="images/edit_icon.png" id="edit_icon">
+                            <img src="assets/edit_icon.png" id="edit_icon">
                         </div>
 
                     </div>
 
                     <div id="sample_profile_additional_info">
-                        <img src="images/sample_profile.jpg" id="sample_profile">
+                        <img src="assets/sample_profile.jpg" id="sample_profile">
                         <p id="sample_student_number">03-2324-123456</p>
                         <p id="sample_student_name">Dela Cruz, Juan T.</p>
                     </div>
@@ -331,12 +331,12 @@
                     <div id="request_screen_upper_top">
 
                         <div id="request_screen_upper_top_left">
-                            <img src="images/request_icon.png" id="request_icon">
+                            <img src="assets/request_icon.png" id="request_icon">
                             <p id="request_text">Request</p>
                         </div>
 
                         <div id="request_screen_upper_top_right">
-                            <img src="images/notification_icon.png" alt="Notification" id="notification_icon">
+                            <img src="assets/notification_icon.png" alt="Notification" id="notification_icon">
                         </div>
                     </div>
 
@@ -642,7 +642,7 @@
 
             <div id="feedback_screen_top">
                 <div id="feedback_screen_upper_top">
-                    <img src="images/feedback_icon.png" alt="feedback" id="feedback_icon">
+                    <img src="assets/feedback_icon.png" alt="feedback" id="feedback_icon">
                     <p id="request_text">Feedback</p>
                     <img src="images/notification_icon.png" alt="Notification" id="notification_icon">
                 </div>
@@ -657,7 +657,7 @@
             <div id="sent_subtab" data-feedback-tab-content>
                 <div id="sent_body">
                     <div id="prompt_compose_message">
-                        <img src="images/compose_icon.png" id="compose_a_message_icon">
+                        <img src="assets/compose_icon.png" id="compose_a_message_icon">
                         <p id="compose_a_message_text">Compose a Message</p>
                         <button id="clear_sent_messages">Clear</button>
                     </div>
@@ -690,11 +690,11 @@
                 <div id="star_rating">
                     <p id="rate_text">Rate us here</p>
                     <div id="star_review">
-                        <img src="images/unstarred_icon.png" id="star1">
-                        <img src="images/unstarred_icon.png" id="star2">
-                        <img src="images/unstarred_icon.png" id="star3">
-                        <img src="images/unstarred_icon.png" id="star4">
-                        <img src="images/unstarred_icon.png" id="star5">
+                        <img src="assets/unstarred_icon.png" id="star1">
+                        <img src="assets/unstarred_icon.png" id="star2">
+                        <img src="assets/unstarred_icon.png" id="star3">
+                        <img src="assets/unstarred_icon.png" id="star4">
+                        <img src="assets/unstarred_icon.png" id="star5">
 
                     </div>
                     <button id="submit_rating_button">Submit Rating</button>
@@ -740,10 +740,10 @@
     <!-- FOOTER, NOT SUBJECT TO CHANGES -->
 
     <footer>
-        <img src="images/www_icon.png" class="footer_icon" id="footer_www_icon">
+        <img src="assets/www_icon.png" class="footer_icon" id="footer_www_icon">
         <a href="https://up.phinma.edu.ph/" class="footer_text" id="footer_upang_website"
             target="_blank">https://up.phinma.edu.ph</a>
-        <img src="images/telephone_icon.png" alt="telephone" telephone class="footer_icon" id="footer_tel_icon">
+        <img src="assets/telephone_icon.png" alt="telephone" telephone class="footer_icon" id="footer_tel_icon">
         <p class="footer_text" id="footer_upang_tel">123-456-789</p>
         <p class="footer_text" id="footer_upang_copyright">Copyright © 2024 PHINMA University of Pangasinan. All
             rights reserved.</p>
