@@ -40,7 +40,7 @@ class ParkingController extends Controller
      */
     public function show(Parking $parking)
     {
-        //
+        return response()->json($parking);
     }
 
     /**
@@ -70,5 +70,24 @@ class ParkingController extends Controller
     {
         $parking->delete();
         return response()->json('successfully deleted');
+    }
+
+    public function available(Parking $id)
+    {
+        $id->update([
+            'status' => 'available'
+        ]);
+        return response()->json([
+            'availble'
+        ]);
+    }
+    public function occupied(Parking $id)
+    {
+        $id->update([
+            'status' => 'occupied'
+        ]);
+        return response()->json([
+            'occupied'
+        ]);
     }
 }

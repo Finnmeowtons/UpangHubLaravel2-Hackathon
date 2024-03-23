@@ -18,7 +18,6 @@ class Document extends Model
         'ammount',
         'grade',
         'status',
-        'mod'
     ];
 
     public function user()

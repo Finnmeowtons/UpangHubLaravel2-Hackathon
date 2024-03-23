@@ -42,5 +42,7 @@ Route::post('/users/check-email', [ApiUserController::class, 'checkEmailAvailabi
 Route::apiResource('users', ApiUserController::class);
 
 Route::apiResource('parking', ParkingController::class);
+Route::put('parking/{id}/available', [ParkingController::class, 'available']);
+Route::put('parking/{id}/occupied', [ParkingController::class, 'occupied']);
 
 Route::apiResource('registrar', RegistrarController::class);
