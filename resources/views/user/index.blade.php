@@ -386,15 +386,6 @@
                                     <label>Purpose of Request</label>
                                     <textarea id="message" name="message" required></textarea>
                                 </div>
-
-                                <div id="delivery">
-                                    <label for="documents_dropdown">mode of delivery</label>
-                                    <select id="documents_dropdown" name = "mod">
-                                        <option value="Pick Up">Pick Up</option>
-                                        <option value="Cash on Delivery">Cash on Delivery</option>
-                                        <!-- Add more options here for different document choices -->
-                                    </select>
-                                </div>
                                 <div id="amount">
                                     <p id="current_amount_text">Current amount: </p>
                                     <p id="current_amount_count">0</p>
@@ -588,8 +579,12 @@
                                             <div class="date-placed">Accepted at: {{ $item->updated_at }}</div>
                                             <div class="status">Status: @if ($item->status == 'accepted')
                                                     In progress
-                                                @else
-                                                    Done
+                                                @endif
+                                                @if ($item->status == 'done')
+                                                    Ready to get/done
+                                                @endif
+                                                @if ($item->status == 'pending')
+                                                    Waiting
                                                 @endif
                                             </div>
                                         </div>

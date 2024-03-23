@@ -18,7 +18,6 @@ return new class extends Migration
             $table->integer('grade')->default(0);
             $table->string('message');
             $table->integer('amount');
-            $table->string('mod');
             $table->string('status')->default('pending');
             $table->string('user_id')->nullable();
             $table->timestamps();
