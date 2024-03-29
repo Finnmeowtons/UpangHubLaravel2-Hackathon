@@ -20,7 +20,8 @@ class RegistrarController extends Controller
             if ($usertype === 'user') {
                 return view('user.index');
             } elseif ($usertype === 'admin') {
-                return redirect(route('admin.index'));
+                $document = Document::all();
+                return redirect(route('admin.index', compact('document')));
             }
         }
     }
